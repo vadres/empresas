@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  # Backend Service 
+  app-server:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - dc-postgres
+    environment:  
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dc-postgres:5400/empresadb?useSSL=false
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres  
+    restart: always
+    networks: 
+      - backend
+      
+  # Postgres Service
+  dc-postgres:
+    image: "postgres:latest"
+    ports:
+      - "5400:5432"
+    environment:
+      POSTGRES_DB: empresadb
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    volumes:
+      - ~/dev/PostgreSQL:/var/lib/postgresql/data
+    networks:
+      - backend
+networks:
+  backend:
