@@ -2,11 +2,11 @@ package br.com.empresas.data.entities.dto;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class JwtResponse {
+public class JwtRequest {
     private String token;
     private UserDetails userDetails;
     
-	public JwtResponse(String token, UserDetails userDetails) {
+	public JwtRequest(String token, UserDetails userDetails) {
 		super();
 		this.token = token;
 		this.userDetails = userDetails;

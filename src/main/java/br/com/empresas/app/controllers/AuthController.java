@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.empresas.data.entities.dto.JwtResponse;
+import br.com.empresas.data.entities.dto.JwtRequest;
 import br.com.empresas.data.entities.dto.LoginRequest;
 import br.com.empresas.data.entities.dto.UserDetailsImpl;
 import br.com.empresas.infra.security.jwt.JwtGen;
@@ -38,7 +38,7 @@ public class AuthController {
 		
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
 		
-		return ResponseEntity.ok(new JwtResponse(jwt, userDetails));
+		return ResponseEntity.ok(new JwtRequest(jwt, userDetails));
 	}
 	
 }

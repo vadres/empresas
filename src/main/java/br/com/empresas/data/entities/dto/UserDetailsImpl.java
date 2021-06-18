@@ -49,8 +49,8 @@ public class UserDetailsImpl implements UserDetails {
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-        var collection = new ArrayList<RoleAdminResponse>();
-        collection.add(new RoleAdminResponse());
+        var collection = new ArrayList<RoleAdminRequest>();
+        collection.add(new RoleAdminRequest());
 		
 		return collection;
 	}
