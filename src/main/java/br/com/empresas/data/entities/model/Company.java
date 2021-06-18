@@ -1,6 +1,7 @@
 package br.com.empresas.data.entities.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Company {
 	@OneToMany(mappedBy = "idCompany", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Employee> employees;
 	
-	@Column(name = "balance")	
+	@Column(name = "balance", columnDefinition = "numeric default 0.0")	
     private Double balance;
 	
 	@JsonIgnore
@@ -62,7 +63,7 @@ public class Company {
 	}
 
 	public List<Employee> getEmployees() {
-		return employees;
+		return employees == null? new ArrayList<Employee>(): employees;
 	}
 
 	public void setEmployees(List<Employee> employees) {
@@ -74,7 +75,7 @@ public class Company {
 	}
 
 	public void setBalance(Double balance) {
-		this.balance = balance;
+		this.balance = balance == null? 0.0: balance;
 	}
 
 	public LocalDateTime getCreatedAt() {

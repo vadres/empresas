@@ -16,7 +16,9 @@ public class CompanyRequest {
 	private List<EmployeeRequest> employees;
 
 	private Double balance;
-    
+	
+	public CompanyRequest() {}
+	
 	public CompanyRequest(Integer id, @NotEmpty String name, List<EmployeeRequest> employees, Double balance) {
 		this.id = id;
 		this.name = name;

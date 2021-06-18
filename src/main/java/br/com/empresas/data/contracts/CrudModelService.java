@@ -1,4 +1,4 @@
-package br.com.empresas.data;
+package br.com.empresas.data.contracts;
 
 import java.util.List;
 

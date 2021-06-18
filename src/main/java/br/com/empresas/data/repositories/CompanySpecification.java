@@ -1,5 +1,7 @@
 package br.com.empresas.data.repositories;
 
+import java.util.ArrayList;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -19,7 +21,13 @@ public class CompanySpecification implements Specification<Company> {
     
 	@Override
 	public Predicate toPredicate(Root<Company> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-		return criteriaBuilder.like(root.get("vl_name"), "%" + criteria.getName() + "%");
-	}
+		var predicates = new ArrayList<Predicate>();
+		
+		if (criteria.getName() != null) {
+			predicates.add(criteriaBuilder.like(root.get("name"), "%" + criteria.getName() + "%"));
+		}
+		
+		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+    }
 
 }

@@ -13,7 +13,9 @@ public class EmployeeRequest {
 	private Integer company;
 
 	private Double balance;
-
+	
+	public EmployeeRequest() {}
+	
 	public EmployeeRequest(@NotEmpty String name, @NotNull Integer company, Double balance) {
 		super();
 		this.name = name;
