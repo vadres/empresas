@@ -1,5 +1,6 @@
-package br.com.empresas.entities.dto;
+package br.com.empresas.data.entities.dto;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -7,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.empresas.entities.model.User;
+import br.com.empresas.data.entities.model.User;
 
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
@@ -16,7 +17,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @JsonIgnore
 	private String password;
-   
+       
 	public UserDetailsImpl(String username, String password) {
 		super();
 		this.username = username;
@@ -48,7 +49,10 @@ public class UserDetailsImpl implements UserDetails {
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+        var collection = new ArrayList<RoleAdminResponse>();
+        collection.add(new RoleAdminResponse());
+		
+		return collection;
 	}
 
 	@Override

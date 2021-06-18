@@ -1,12 +1,16 @@
-package br.com.empresas.entities.model;
+package br.com.empresas.data.entities.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,21 +18,22 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
-@Table(name = "tb_user")
-public class User {
+@Table(name = "tb_company")
+public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_user")	
     private Integer id;
 	
-	@Column(name = "vl_login")	
-    private String login;
-		
-	@JsonIgnore
-	@Column(name = "vl_password")	
-    private String password;
+	@Column(name = "vl_name")	
+    private String name;	
+
+	@OneToMany(mappedBy = "idCompany", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Employee> employees;
+	
+	@Column(name = "balance")	
+    private Double balance;
 	
 	@JsonIgnore
 	@CreationTimestamp
@@ -48,20 +53,28 @@ public class User {
 		this.id = id;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getName() {
+		return name;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
 	}
 
 	public LocalDateTime getCreatedAt() {

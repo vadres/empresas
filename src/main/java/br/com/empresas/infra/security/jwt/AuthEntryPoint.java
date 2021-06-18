@@ -1,4 +1,4 @@
-package br.com.empresas.security.jwt;
+package br.com.empresas.infra.security.jwt;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package br.com.empresas.security.jwt;
+package br.com.empresas.infra.security.jwt;
 
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -11,7 +11,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
-import br.com.empresas.entities.dto.UserDetailsImpl;
+import br.com.empresas.data.entities.dto.UserDetailsImpl;
 
 @Component
 public class JwtGen {

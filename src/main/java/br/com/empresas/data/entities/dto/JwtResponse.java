@@ -1,4 +1,4 @@
-package br.com.empresas.entities.dto;
+package br.com.empresas.data.entities.dto;
 
 import org.springframework.security.core.userdetails.UserDetails;
 

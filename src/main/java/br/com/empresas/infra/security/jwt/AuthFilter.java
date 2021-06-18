@@ -1,4 +1,4 @@
-package br.com.empresas.security.jwt;
+package br.com.empresas.infra.security.jwt;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import br.com.empresas.services.UserDetailsServiceImpl;
+import br.com.empresas.app.services.UserDetailsServiceImpl;
 
 
 public class AuthFilter extends OncePerRequestFilter {

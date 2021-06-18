@@ -1,4 +1,4 @@
-package br.com.empresas.controllers;
+package br.com.empresas.app.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.empresas.entities.dto.JwtResponse;
-import br.com.empresas.entities.dto.LoginRequest;
-import br.com.empresas.entities.dto.UserDetailsImpl;
-import br.com.empresas.security.jwt.JwtGen;
+import br.com.empresas.data.entities.dto.JwtResponse;
+import br.com.empresas.data.entities.dto.LoginRequest;
+import br.com.empresas.data.entities.dto.UserDetailsImpl;
+import br.com.empresas.infra.security.jwt.JwtGen;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)

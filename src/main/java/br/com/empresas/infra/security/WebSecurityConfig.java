@@ -1,4 +1,4 @@
-package br.com.empresas.security;
+package br.com.empresas.infra.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import br.com.empresas.security.jwt.AuthEntryPoint;
-import br.com.empresas.security.jwt.AuthFilter;
+import br.com.empresas.infra.security.jwt.AuthEntryPoint;
+import br.com.empresas.infra.security.jwt.AuthFilter;
 
 @Configuration
 @EnableWebSecurity

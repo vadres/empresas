@@ -1,4 +1,4 @@
-package br.com.empresas.entities.dto;
+package br.com.empresas.data.entities.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
