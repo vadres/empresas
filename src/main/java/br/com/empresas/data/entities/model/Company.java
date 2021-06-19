@@ -30,7 +30,7 @@ public class Company {
 	@Column(name = "vl_name")	
     private String name;	
 
-	@OneToMany(mappedBy = "idCompany", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "idCompany", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Employee> employees;
 	
 	@Column(name = "balance", columnDefinition = "numeric default 0.0")	

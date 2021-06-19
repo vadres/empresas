@@ -70,7 +70,7 @@ public class Employee {
 	}
 
 	public void setBalance(Double balance) {
-		this.balance = balance;
+		this.balance = balance == null? 0.0 : balance;
 	}
 
 	public LocalDateTime getCreatedAt() {

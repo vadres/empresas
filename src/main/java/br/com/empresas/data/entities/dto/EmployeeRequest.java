@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import br.com.empresas.data.entities.model.Employee;
 
 public class EmployeeRequest {
+	private Integer id;
+	
 	@NotEmpty
 	private String name;	
 
@@ -16,8 +18,9 @@ public class EmployeeRequest {
 	
 	public EmployeeRequest() {}
 	
-	public EmployeeRequest(@NotEmpty String name, @NotNull Integer company, Double balance) {
+	public EmployeeRequest(Integer id, @NotEmpty String name, @NotNull Integer company, Double balance) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.company = company;
 		this.balance = balance;
@@ -47,8 +50,17 @@ public class EmployeeRequest {
 		this.balance = balance;
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public static EmployeeRequest build(Employee employee) {
 		return new EmployeeRequest(
+			employee.getId(),
 			employee.getName(), 
 			employee.getIdCompany(), 
 			employee.getBalance()
