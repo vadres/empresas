@@ -9,6 +9,7 @@ docker-compose up --build
 ```
 ## usuário para autenticação na api
 | Login | Senha |
+| ------ | -------|
 | admin | 12345678|
 
 #### Documentação da API
