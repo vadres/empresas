@@ -14,15 +14,19 @@ public class EmployeeRequest {
 	@NotNull
 	private Integer company;
 
+	@NotNull
+	private Double salary;
+
 	private Double balance;
 	
 	public EmployeeRequest() {}
 	
-	public EmployeeRequest(Integer id, @NotEmpty String name, @NotNull Integer company, Double balance) {
+	public EmployeeRequest(Integer id, @NotEmpty String name, @NotNull Integer company, Double salary, Double balance) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.company = company;
+		this.salary = salary;
 		this.balance = balance;
 	}
 
@@ -42,12 +46,12 @@ public class EmployeeRequest {
 		this.company = company;
 	}
 
-	public Double getBalance() {
-		return balance;
+	public Double getSalary() {
+		return salary;
 	}
 
-	public void setBalance(Double balance) {
-		this.balance = balance;
+	public void setSalary(Double balance) {
+		this.salary = balance;
 	}
 	
 	public Integer getId() {
@@ -58,11 +62,20 @@ public class EmployeeRequest {
 		this.id = id;
 	}
 
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
 	public static EmployeeRequest build(Employee employee) {
 		return new EmployeeRequest(
 			employee.getId(),
 			employee.getName(), 
 			employee.getIdCompany(), 
+			employee.getSalary(),
 			employee.getBalance()
 		);
 	}

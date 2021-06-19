@@ -26,7 +26,10 @@ public class CompanySpecification implements Specification<Company> {
 		if (criteria.getName() != null) {
 			predicates.add(criteriaBuilder.like(root.get("name"), "%" + criteria.getName() + "%"));
 		}
-		
+		if (criteria.getId() != null) {
+			predicates.add(criteriaBuilder.equal(root.get("id"), criteria.getId()));
+		}
+		query.distinct(true);
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
     }
 

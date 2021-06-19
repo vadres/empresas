@@ -29,7 +29,8 @@ public class EmployeeService implements CrudModelService<EmployeeRequest> {
 			.orElseThrow(() -> new NotFoundException("Company not found"));
 		
 		var employee = new Employee();
-		employee.setBalance(dto.getBalance());
+		employee.setBalance(0.0);
+		employee.setSalary(dto.getSalary());
 		employee.setIdCompany(dto.getCompany());
 		employee.setName(dto.getName());
 		
@@ -41,7 +42,7 @@ public class EmployeeService implements CrudModelService<EmployeeRequest> {
 		var employee = repository.findById(dto.getId())
 			.orElseThrow(() -> new NotFoundException("Employee not found"));
 		
-		employee.setBalance(dto.getBalance());
+		employee.setSalary(dto.getSalary());
 		employee.setIdCompany(dto.getCompany());
 		employee.setName(dto.getName());
 		
@@ -61,7 +62,6 @@ public class EmployeeService implements CrudModelService<EmployeeRequest> {
 	public List<EmployeeRequest> read(EmployeeRequest dto) {
 		var employee = new Employee();
 		employee.setName(dto.getName());
-		employee.setBalance(dto.getBalance());
 		employee.setId(dto.getId());
 		
 		Specification<Employee> spec = new EmployeeSpecification(employee);

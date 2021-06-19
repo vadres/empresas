@@ -27,9 +27,12 @@ public class Employee {
 
 	@Column(name = "id_company")	
     private Integer idCompany;
-	
+
 	@Column(name = "balance")	
     private Double balance;
+	
+	@Column(name = "salary")	
+    private Double salary;
 			
 	@JsonIgnore
 	@CreationTimestamp
@@ -65,12 +68,12 @@ public class Employee {
 		this.idCompany = idCompany;
 	}
 
-	public Double getBalance() {
-		return balance;
+	public Double getSalary() {
+		return salary;
 	}
 
-	public void setBalance(Double balance) {
-		this.balance = balance == null? 0.0 : balance;
+	public void setSalary(Double salary) {
+		this.salary = salary == null? 0.0 : salary;
 	}
 
 	public LocalDateTime getCreatedAt() {
@@ -87,5 +90,13 @@ public class Employee {
 
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
 	}
 }
