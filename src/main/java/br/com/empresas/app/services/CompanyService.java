@@ -4,14 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import br.com.empresas.data.contracts.CrudModelService;
 import br.com.empresas.data.entities.dto.CompanyRequest;
 import br.com.empresas.data.entities.model.Company;
 import br.com.empresas.data.repositories.CompanyRepository;
-import br.com.empresas.data.repositories.CompanySpecification;
 import br.com.empresas.infra.exceptions.NotFoundException;
 
 @Service
@@ -54,10 +53,8 @@ public class CompanyService implements CrudModelService<CompanyRequest> {
 		company.setName(dto.getName());
 		company.setBalance(dto.getBalance());
 		
-		Specification<Company> spec = new CompanySpecification(company);
-		
 		return repository
-				  .findAll(spec)
+				  .findAll(Example.of(company))
 				  .stream()
 				  .map(CompanyRequest::build)
 				  .collect(Collectors.toList());
